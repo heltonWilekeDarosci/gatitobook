@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { ExistingUserService } from './existing-user.service';
 import { NewUserService } from './new-user.service';
 import { Component, OnInit } from '@angular/core';
@@ -19,6 +20,7 @@ export class NewUserComponent implements OnInit {
     private formBuilder: FormBuilder,
     private NewUserService: NewUserService,
     private ExistingUserService: ExistingUserService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -35,8 +37,16 @@ export class NewUserComponent implements OnInit {
   }
 
   sigUp() {
-    const newUser = this.newUserForm.getRawValue() as NewUser;
-    console.log(newUser);
+    if (this.newUserForm.valid) {
+      const newUser = this.newUserForm.getRawValue() as NewUser;
+      this.NewUserService.signUpNewUser(newUser).subscribe(
+        () => {
+          this.router.navigate(['']);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    }
   }
-
 }
