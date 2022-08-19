@@ -63,7 +63,12 @@
       type="password"
       class="form-control"
       placeholder="Senha"
-      formControlName="password">
+      formControlName="password"/>
+      <app-message
+        *ngIf="newUserForm.errors?.['sameUserPassword']"
+        message="Senha deve ser diferente do usuário"
+      >
+      </app-message>
   </div>
 
   <button class="btn btn-primary btn-block">Cadastrar</button>
