@@ -1,15 +1,15 @@
 <div class="bg-white border" *ngIf="animal$ | async as animal" >
   <div class="row">
     <div class="col-lg-8">
-      <app-animal
+      <app-animal>
         [url]="animal.url"
-        [description]="animal.description">
+        [description]="animal.description"
       </app-animal>
     </div>
     <div class="col-lg-4">
       <small>
         <p class="text-left break-word">
-          {{ animal.description }}
+          {{ animal$.description }}
         </p>
       </small>
     </div>

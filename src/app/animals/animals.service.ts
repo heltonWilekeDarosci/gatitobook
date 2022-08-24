@@ -21,4 +21,10 @@ export class AnimalsService {
       headers,
     });
   }
+
+  idSearch(id: number): Observable<animals> {
+    const token = this.tokenService.returnToken();
+    const headers = new HttpHeaders().append('x-access-token', token);
+    return this.http.get<animals>(`${API}/photos/${id}`, { headers });
+  }
 }
