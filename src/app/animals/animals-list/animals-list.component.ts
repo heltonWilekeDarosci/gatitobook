@@ -1,3 +1,7 @@
+import { switchMap, Observable } from 'rxjs';
+import { AnimalsService } from './../animals.service';
+import { UserService } from './../../authentication/user/user.service';
+import { animals } from './../animals';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +11,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AnimalsListComponent implements OnInit {
 
-  constructor() { }
+  animals$!: Observable<animals>;
+
+  constructor(
+    private UserService: UserService,
+    private AnimalsService: AnimalsService
+  ) { }
 
   ngOnInit(): void {
+    this.animals$ = this.UserService.returnUser().pipe(
+      switchMap((user) => {
+        const userName = user?.name ?? '';
+        return this.AnimalsService.userList(userName);
+      })
+    )
   }
-
 }

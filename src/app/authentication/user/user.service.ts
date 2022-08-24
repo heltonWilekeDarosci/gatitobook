@@ -8,7 +8,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
-  private userSubject = new BehaviorSubject<User>({});
+  private userSubject = new BehaviorSubject<User | null>(null);
 
   constructor(private tokenService: TokenService) {
     if (this.tokenService.possessToken()) {
@@ -33,7 +33,7 @@ export class UserService {
 
   logout() {
     this.tokenService.deleteToken();
-    this.userSubject.next({});
+    this.userSubject.next(null);
   }
 
   loggedIn() {
