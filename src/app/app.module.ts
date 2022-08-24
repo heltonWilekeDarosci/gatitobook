@@ -1,3 +1,4 @@
+import { AuthenticationModule } from './authentication/authentication.module';
 import { FooterModule } from './component/footer/footer.module';
 import { HeaderModule } from './component/header/header.module';
 import { HttpClientModule } from '@angular/common/http';
@@ -16,7 +17,8 @@ import { AppComponent } from './app.component';
     AppRoutingModule,
     HttpClientModule,
     HeaderModule,
-    FooterModule
+    FooterModule,
+    AuthenticationModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
