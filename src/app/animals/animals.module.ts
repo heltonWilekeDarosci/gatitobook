@@ -6,13 +6,15 @@ import { AnimalsRoutingModule } from './animals-routing.module';
 import { AnimalsListComponent } from './animals-list/animals-list.component';
 import { AnimalComponent } from './animal/animal.component';
 import { AnimalPhotoGridComponent } from './animal-photo-grid/animal-photo-grid.component';
+import { AnimalDetailComponent } from './animal-detail/animal-detail.component';
 
 
 @NgModule({
   declarations: [
     AnimalsListComponent,
     AnimalComponent,
-    AnimalPhotoGridComponent
+    AnimalPhotoGridComponent,
+    AnimalDetailComponent
   ],
   imports: [
     CommonModule,
