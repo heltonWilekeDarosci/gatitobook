@@ -1,7 +1,7 @@
 import { AnimalsService } from './../animals.service';
 import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
-import { animals } from '../animals';
+import { Animal } from '../animals';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -12,7 +12,7 @@ import { ActivatedRoute } from '@angular/router';
 export class AnimalDetailComponent implements OnInit {
 
   animalId!: number;
-  animal$!: Observable<animals>;
+  animal$!: Observable<Animal>;
 
   constructor(
     private animalsService: AnimalsService,
